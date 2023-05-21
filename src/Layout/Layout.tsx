@@ -4,12 +4,10 @@ import Container from "react-bootstrap/Container";
 
 const Layout = () => {
   return (
-    <div>
-      <Container>
-        <NavBar />
-        <Outlet />
-      </Container>
-    </div>
+    <Container>
+      <NavBar />
+      <Outlet />
+    </Container>
   );
 };
 
