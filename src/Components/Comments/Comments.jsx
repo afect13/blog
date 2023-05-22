@@ -1,30 +1,20 @@
-import React from "react";
-
+import { useEffect } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-const Comments = () => {
+import { useDispatch, useSelector } from "react-redux";
+
+const Comments = ({ postId, comments }) => {
   return (
-    <div>
-      <ListGroup as="ol" numbered>
-        <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-          <div className="ms-2 me-auto">
-            <div className="fw-bold">Subheading</div>
-            Cras justo odio
-          </div>
-        </ListGroup.Item>
-        <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-          <div className="ms-2 me-auto">
-            <div className="fw-bold">Subheading</div>
-            Cras justo odio
-          </div>
-        </ListGroup.Item>
-        <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-          <div className="ms-2 me-auto">
-            <div className="fw-bold">Subheading</div>
-            Cras justo odio
-          </div>
-        </ListGroup.Item>
-      </ListGroup>
-    </div>
+    <ListGroup as="ol" numbered>
+      {comments[postId] &&
+        comments[postId].map((commet) => (
+          <ListGroup.Item key={commet.id} as="li" className="d-flex justify-content-between align-items-start">
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">{commet.email}</div>
+              {commet.body}
+            </div>
+          </ListGroup.Item>
+        ))}
+    </ListGroup>
   );
 };
 
