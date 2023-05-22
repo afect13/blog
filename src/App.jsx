@@ -3,7 +3,6 @@ import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Users from "./Pages/Users/Users";
 import Layout from "./Layout/Layout";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (

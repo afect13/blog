@@ -1,7 +1,7 @@
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Comments from "../Comments/Comments";
-
+import Spinner from "react-bootstrap/Spinner";
 const Post = ({ userId, title, body, users, toggleButton, postId, showComment, comments }) => {
   return (
     <div className="row bg-light rounded-4  shadow p-3 mb-5 bg-body-tertiary">
@@ -24,12 +24,19 @@ const Post = ({ userId, title, body, users, toggleButton, postId, showComment, c
           <div className="row">
             {showComment.includes(postId) && <Comments postId={postId} comments={comments} />}
             <div className="col d-flex justify-content-end mt-4">
-              <Button
-                onClick={() => toggleButton(postId)}
-                variant={showComment.includes(postId) ? "danger" : "primary"}
-              >
-                {showComment.includes(postId) ? "Hide Comments" : "Show Comments"}
-              </Button>
+              {comments[postId]?.length === 0 ? (
+                <Button variant="primary" disabled>
+                  <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                  Loading...
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => toggleButton(postId)}
+                  variant={showComment.includes(postId) ? "danger" : "primary"}
+                >
+                  {showComment.includes(postId) ? "Hide Comments" : "Show Comments"}
+                </Button>
+              )}
             </div>
           </div>
         </div>

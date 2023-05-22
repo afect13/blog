@@ -1,6 +1,7 @@
 import ListGroup from "react-bootstrap/ListGroup";
 
 const Comments = ({ postId, comments }) => {
+  console.log(comments);
   return (
     <ListGroup as="ol" numbered>
       {comments[postId] &&
