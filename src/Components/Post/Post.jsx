@@ -1,7 +1,7 @@
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-const Post = () => {
+const Post = ({ user, title, body }) => {
   return (
     <div className="row bg-light rounded-4  shadow p-3 mb-5 bg-body-tertiary">
       <div className="row">
@@ -10,11 +10,8 @@ const Post = () => {
         </div>
         <div className="col mt-4 d-flex justify-content-between flex-column">
           <div>
-            <h1>qui est esse</h1>
-            <p>
-              et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium
-              quis pariatur\nmolestiae porro eius odio et labore et velit aut
-            </p>
+            <h1>{title}</h1>
+            <p>{body}</p>
           </div>
         </div>
       </div>
