@@ -1,7 +1,8 @@
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-const Post = ({ user, title, body }) => {
+const Post = ({ userId, title, body, users }) => {
+  console.log(users.filter((user) => user.id == userId)[0].name);
   return (
     <div className="row bg-light rounded-4  shadow p-3 mb-5 bg-body-tertiary">
       <div className="row">
@@ -17,7 +18,7 @@ const Post = ({ user, title, body }) => {
       </div>
       <div className="row ">
         <div className="d-flex justify-content-center mt-2 col-3 mb-4">
-          <h4>USERS</h4>
+          <h4>{users.filter((user) => user.id == userId)[0].username}</h4>
         </div>
         <div className="col mb-4 d-flex justify-content-between flex-column">
           <div className="row">

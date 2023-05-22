@@ -1,5 +1,6 @@
 export const init = {
   posts: [],
+  users: [],
 };
 
 export default function appReducer(state = init, action) {
@@ -8,6 +9,11 @@ export default function appReducer(state = init, action) {
       return {
         ...state,
         posts: action.payload,
+      };
+    case "USERS_LOADED":
+      return {
+        ...state,
+        users: action.payload,
       };
   }
 

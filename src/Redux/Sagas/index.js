@@ -1,4 +1,4 @@
-import { all, call, spawn, delay, fork } from "redux-saga/effects";
+import { all, call, spawn } from "redux-saga/effects";
 import { loadAllData } from "./initialSagas";
 
 export default function* rootSaga() {
