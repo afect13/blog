@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-import { useDispatch, useSelector } from "react-redux";
 
 const Comments = ({ postId, comments }) => {
   return (

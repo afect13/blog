@@ -1,23 +1,9 @@
-import { all, call, put, spawn, take } from "redux-saga/effects";
+import { all, call, spawn } from "redux-saga/effects";
 import { loadAllData } from "./initialSagas";
-import axios from "axios";
-
-export function* loadComments() {
-  while (true) {
-    const action = yield take("LOAD_COMMENT");
-    const { postId } = action;
-    const response = yield call(axios.get, `https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
-    const data = response.data;
-    yield put({
-      type: "COMMENTS_LOADED",
-      payload: data,
-      key: postId,
-    });
-  }
-}
+import { loadComments, removeComments } from "./commentSagas";
 
 export default function* rootSaga() {
-  const sagas = [loadAllData, loadComments];
+  const sagas = [loadAllData, loadComments, removeComments];
   const retrySagas = yield sagas.map((saga) => {
     return spawn(function* () {
       while (true) {

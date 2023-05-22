@@ -21,6 +21,12 @@ export default function appReducer(state = init, action) {
         ...state,
         comments: { ...state.comments, [action.key]: action.payload },
       };
+    case "COMMENTS_REMOVE":
+      const { [action.key]: removeComment, ...updatedComments } = state.comments;
+      return {
+        ...state,
+        comments: updatedComments,
+      };
   }
 
   return state;

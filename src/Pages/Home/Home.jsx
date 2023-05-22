@@ -9,6 +9,10 @@ const Home = () => {
   const handleToggleCommentButton = (postId) => {
     if (showComment.includes(postId)) {
       setShowComent((prev) => prev.filter((p) => p !== postId));
+      dispatch({
+        type: "REMOVE_COMMENT",
+        postId: postId,
+      });
     } else {
       setShowComent((prev) => [...prev, postId]);
       dispatch({
