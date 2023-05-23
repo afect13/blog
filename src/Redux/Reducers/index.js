@@ -1,6 +1,6 @@
 export const init = {
   posts: [],
-  users: [],
+  user: null,
   comments: [],
 };
 
@@ -11,10 +11,10 @@ export default function appReducer(state = init, action) {
         ...state,
         posts: action.payload,
       };
-    case "USERS_LOADED":
+    case "USER_LOADED":
       return {
         ...state,
-        users: action.payload,
+        user: action.payload,
       };
     case "COMMENTS_LOADED":
       return {
@@ -28,6 +28,5 @@ export default function appReducer(state = init, action) {
         comments: updatedComments,
       };
   }
-
   return state;
 }

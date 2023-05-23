@@ -1,9 +1,10 @@
 import { all, call, spawn } from "redux-saga/effects";
-import { loadAllData } from "./initialSagas";
+import { loadPosts } from "./postsSagas";
 import { loadComments, removeComments } from "./commentSagas";
+import { loadUsers } from "./userSagas";
 
 export default function* rootSaga() {
-  const sagas = [loadAllData, loadComments, removeComments];
+  const sagas = [loadPosts, loadComments, removeComments, loadUsers];
   const retrySagas = yield sagas.map((saga) => {
     return spawn(function* () {
       while (true) {

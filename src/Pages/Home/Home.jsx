@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <PageWrapper title={"Posts"}>
-      {data.users.length > 0 && data.posts.length > 0 ? (
+      {data.posts.length > 0 ? (
         data.posts.map((post) => (
           <Post
             key={post.id}
@@ -33,7 +33,6 @@ const Home = () => {
             userId={post.userId}
             title={post.title}
             body={post.body}
-            users={data.users}
             comments={data.comments}
             toggleButton={handleToggleCommentButton}
             showComment={showComment}

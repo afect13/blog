@@ -1,20 +1,27 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import PageWrapper from "../../Components/PageWrapper/PageWrapper";
 import UserCard from "../../Components/UserCard/UserCard";
+import { useEffect } from "react";
 
 const UserProfile = () => {
-  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const params = useParams();
   const { userId } = params;
-  const user = users.filter((u) => u.id === Number(userId));
-  console.log(user);
+  useEffect(() => {
+    dispatch({
+      type: "LOAD_USER",
+      userId: userId,
+    });
+  }, []);
 
+  console.log(user);
   return (
     <>
-      {user.length > 0 && (
-        <PageWrapper title={user[0].name}>
-          <UserCard user={user[0]} />
+      {user !== null && (
+        <PageWrapper title={user.name}>
+          <UserCard user={user} />
         </PageWrapper>
       )}
     </>
