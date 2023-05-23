@@ -3,13 +3,14 @@ import Button from "react-bootstrap/Button";
 import Comments from "../Comments/Comments";
 import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
+import { rootPath } from "../../Config/config";
 const Post = ({ userId, title, body, users, toggleButton, postId, showComment, comments }) => {
   return (
     <div className="row bg-light rounded-4  shadow p-3 mb-5 bg-body-tertiary">
       <div className="row">
         <div className="d-flex justify-content-statr align-items-center flex-column col-3 mt-4">
-          <Link to={`/users/${userId}`}>
-            <Image className="img-thumbnail" src="image/UsersAvatar.png" roundedCircle />
+          <Link to={`${rootPath}/users/${userId}`}>
+            <Image className="img-thumbnail" src={`${rootPath}/image/UsersAvatar.png`} roundedCircle />
           </Link>
           <h4>{users.filter((user) => user.id === userId)[0].username}</h4>
         </div>

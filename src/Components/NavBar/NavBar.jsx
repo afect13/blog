@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
+import { rootPath } from "../../Config/config";
 
 const NavBar = () => {
   return (
     <>
       <Navbar expand={false} className="mb-3 shadow bg-light p-3 mb-5 bg-body-tertiary rounded-bottom">
         <Container fluid>
-          <Navbar.Brand href="/">BloG</Navbar.Brand>
+          <Navbar.Brand href={`${rootPath}/`}>BloG</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-false" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-false"
@@ -24,7 +25,7 @@ const NavBar = () => {
             <Offcanvas.Body>
               <Row className="justify-content-center">
                 <Col className="col-8  ">
-                  <Image className="img-thumbnail " src={`${process.env.PUBLIC_URL}/image/avatar.png`} roundedCircle />
+                  <Image className="img-thumbnail " src={`${rootPath}/image/avatar.png`} roundedCircle />
                 </Col>
               </Row>
               <Row className="justify-content-center mt-2">
@@ -33,10 +34,10 @@ const NavBar = () => {
                 </Col>
               </Row>
               <nav className="d-flex flex-column align-items-center mt-2 gap-3">
-                <Link className="text-decoration-none fs-5 text-uppercase text-reset" to="/">
+                <Link className="text-decoration-none fs-5 text-uppercase text-reset" to={`${rootPath}/`}>
                   Список постов
                 </Link>
-                <Link className="text-decoration-none fs-5 text-uppercase text-reset" to="/about">
+                <Link className="text-decoration-none fs-5 text-uppercase text-reset" to={`${rootPath}/about`}>
                   Обо мне
                 </Link>
               </nav>
