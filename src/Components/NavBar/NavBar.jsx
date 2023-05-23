@@ -24,7 +24,7 @@ const NavBar = () => {
             <Offcanvas.Body>
               <Row className="justify-content-center">
                 <Col className="col-8  ">
-                  <Image className="img-thumbnail " src="image/avatar.png" roundedCircle />
+                  <Image className="img-thumbnail " src={`${process.env.PUBLIC_URL}/image/avatar.png`} roundedCircle />
                 </Col>
               </Row>
               <Row className="justify-content-center mt-2">

@@ -2,12 +2,16 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Comments from "../Comments/Comments";
 import Spinner from "react-bootstrap/Spinner";
+import { Link } from "react-router-dom";
 const Post = ({ userId, title, body, users, toggleButton, postId, showComment, comments }) => {
   return (
     <div className="row bg-light rounded-4  shadow p-3 mb-5 bg-body-tertiary">
       <div className="row">
-        <div className="col-3 mt-4">
-          <Image className="img-thumbnail" src="image/UsersAvatar.png" roundedCircle></Image>
+        <div className="d-flex justify-content-statr align-items-center flex-column col-3 mt-4">
+          <Link to={`/users/${userId}`}>
+            <Image className="img-thumbnail" src="image/UsersAvatar.png" roundedCircle />
+          </Link>
+          <h4>{users.filter((user) => user.id === userId)[0].username}</h4>
         </div>
         <div className="col mt-4 d-flex justify-content-between flex-column">
           <div>
@@ -17,9 +21,7 @@ const Post = ({ userId, title, body, users, toggleButton, postId, showComment, c
         </div>
       </div>
       <div className="row ">
-        <div className="d-flex justify-content-center mt-2 col-3 mb-4">
-          <h4>{users.filter((user) => user.id == userId)[0].username}</h4>
-        </div>
+        <div className="d-flex justify-content-center mt-2 col-3 mb-4"></div>
         <div className="col mb-4 d-flex justify-content-between flex-column">
           <div className="row">
             {showComment.includes(postId) && <Comments postId={postId} comments={comments} />}

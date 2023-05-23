@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Post from "../../Components/Post/Post";
 import Spinner from "react-bootstrap/Spinner";
 import { useState } from "react";
+import PageWrapper from "../../Components/PageWrapper/PageWrapper";
 const Home = () => {
   const [showComment, setShowComent] = useState([]);
   const dispatch = useDispatch();
@@ -23,30 +24,27 @@ const Home = () => {
   };
 
   return (
-    <div className="row justify-content-center">
-      <div className="col-10">
-        <h1 className="text-center  fw-bold mb-5">Posts</h1>
-        {data.users.length > 0 && data.posts.length > 0 ? (
-          data.posts.map((post) => (
-            <Post
-              key={post.id}
-              postId={post.id}
-              userId={post.userId}
-              title={post.title}
-              body={post.body}
-              users={data.users}
-              comments={data.comments}
-              toggleButton={handleToggleCommentButton}
-              showComment={showComment}
-            />
-          ))
-        ) : (
-          <div className="d-flex align-items-center justify-content-center" style={{ height: "60vh" }}>
-            <Spinner animation="border" variant="primary" style={{ width: "100px", height: "100px" }} />
-          </div>
-        )}
-      </div>
-    </div>
+    <PageWrapper title={"Posts"}>
+      {data.users.length > 0 && data.posts.length > 0 ? (
+        data.posts.map((post) => (
+          <Post
+            key={post.id}
+            postId={post.id}
+            userId={post.userId}
+            title={post.title}
+            body={post.body}
+            users={data.users}
+            comments={data.comments}
+            toggleButton={handleToggleCommentButton}
+            showComment={showComment}
+          />
+        ))
+      ) : (
+        <div className="d-flex align-items-center justify-content-center" style={{ height: "60vh" }}>
+          <Spinner animation="border" variant="primary" style={{ width: "100px", height: "100px" }} />
+        </div>
+      )}
+    </PageWrapper>
   );
 };
 
