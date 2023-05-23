@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "homepage": "https://afect13.github.io/blog",
+  "homepage": "https://afect13.github.io/blog/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
