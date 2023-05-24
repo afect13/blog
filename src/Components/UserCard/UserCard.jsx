@@ -1,9 +1,19 @@
-import { Card, Container, Row, Col, Image } from "react-bootstrap";
+import { Card, Row, Col, Image, Button } from "react-bootstrap";
 import { rootPath } from "../../Config/config";
-
+import { useNavigate } from "react-router-dom";
+import PageWrapper from "../PageWrapper/PageWrapper";
 const UserCard = ({ user }) => {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
   return (
-    <Container>
+    <PageWrapper title={user.name}>
+      <Button className="mb-4" onClick={handleGoBack} variant="primary">
+        <span>&lt; Go Back</span>
+      </Button>
+
       <Card className="shadow p-4">
         <Card.Body>
           <Row>
@@ -43,7 +53,7 @@ const UserCard = ({ user }) => {
           </Row>
         </Card.Body>
       </Card>
-    </Container>
+    </PageWrapper>
   );
 };
 

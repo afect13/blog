@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
-import PageWrapper from "../../Components/PageWrapper/PageWrapper";
 import UserCard from "../../Components/UserCard/UserCard";
 import { useEffect } from "react";
-import { Spinner } from "react-bootstrap";
+import PageSpinner from "../../Components/PageSpinner/PageSpinner";
+import Posts from "../../Components/Posts/Posts";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const data = useSelector((state) => state);
   const params = useParams();
   const { userId } = params;
   useEffect(() => {
@@ -16,18 +16,17 @@ const UserProfile = () => {
       userId: userId,
     });
   }, []);
-
-  console.log(user);
+  const userPosts = data.posts.filter((p) => p.userId === Number(userId));
+  console.log(data.user);
   return (
     <>
-      {user !== null ? (
-        <PageWrapper title={user.name}>
-          <UserCard user={user} />
-        </PageWrapper>
+      {data.user !== null ? (
+        <>
+          <UserCard user={data.user} />
+          <Posts posts={userPosts} />
+        </>
       ) : (
-        <div className="d-flex align-items-center justify-content-center" style={{ height: "60vh" }}>
-          <Spinner animation="border" variant="primary" style={{ width: "100px", height: "100px" }} />
-        </div>
+        <PageSpinner />
       )}
     </>
   );
