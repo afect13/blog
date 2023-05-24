@@ -10,13 +10,6 @@ export function* loadUsers() {
       payload: null,
     });
     yield delay(500);
-
-    // const response = yield call(axios.get, `https://jsonplaceholder.typicode.com/users/${userId}`);
-    // const data = response.data;
-    // yield put({
-    //   type: "USER_LOADED",
-    //   payload: data,
-    // });
     try {
       const response = yield call(axios.get, `https://jsonplaceholder.typicode.com/users/${userId}`);
       const data = response.data;

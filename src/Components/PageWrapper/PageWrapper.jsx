@@ -1,5 +1,3 @@
-import React from "react";
-
 const PageWrapper = ({ title, children }) => {
   return (
     <div className="row justify-content-center mt-5">

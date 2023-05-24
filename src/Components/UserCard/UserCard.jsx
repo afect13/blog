@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import PageWrapper from "../PageWrapper/PageWrapper";
 const UserCard = ({ user }) => {
   const navigate = useNavigate();
-
   const handleGoBack = () => {
     navigate(-1);
   };
@@ -13,11 +12,10 @@ const UserCard = ({ user }) => {
       <Button className="mb-4" onClick={handleGoBack} variant="primary">
         <span>&lt; Go Back</span>
       </Button>
-
       <Card className="shadow p-4">
         <Card.Body>
           <Row>
-            <Col>
+            <Col className="d-flex flex-column align-items-left justify-content-around">
               <Card.Text className="fs-5">
                 <strong>Username:</strong> {user.username}
               </Card.Text>
@@ -48,7 +46,7 @@ const UserCard = ({ user }) => {
               </Card.Text>
             </Col>
             <Col className="d-flex align-items-center justify-content-center">
-              <Image className="img-thumbnail" src={`${rootPath}/image/UsersAvatar.png`} roundedCircle />
+              <Image className="img-thumbnail" src={`${rootPath}/image/UsersAvatar.png`} />
             </Col>
           </Row>
         </Card.Body>

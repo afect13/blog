@@ -1,11 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate, useParams } from "react-router";
-import UserCard from "../../Components/UserCard/UserCard";
 import { useEffect } from "react";
+import UserCard from "../../Components/UserCard/UserCard";
 import PageSpinner from "../../Components/PageSpinner/PageSpinner";
 import Posts from "../../Components/Posts/Posts";
 import { rootPath } from "../../Config/config";
-
 const UserProfile = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state);
@@ -16,7 +15,7 @@ const UserProfile = () => {
       type: "LOAD_USER",
       userId: userId,
     });
-  }, []);
+  }, [dispatch, userId]);
   const userPosts = data.posts.filter((p) => p.userId === Number(userId));
 
   return (

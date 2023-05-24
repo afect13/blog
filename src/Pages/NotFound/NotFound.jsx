@@ -1,5 +1,5 @@
-import { Button, Container } from "react-bootstrap";
 import PageWrapper from "../../Components/PageWrapper/PageWrapper";
+import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { rootPath } from "../../Config/config";
 
