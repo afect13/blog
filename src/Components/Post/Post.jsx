@@ -10,7 +10,7 @@ const Post = ({ userId, title, body, toggleButton, postId, showComment, comments
     <Row className="bg-light rounded-4 shadow p-3 mb-5 bg-body-tertiary">
       <Row>
         <Col className="d-flex justify-content-start align-items-center flex-column col-3 mt-4">
-          <Link to={`${rootPath}/users/${userId}`}>
+          <Link to={`${rootPath}/user/${userId}`}>
             <Image className="img-thumbnail" src={`${rootPath}/image/UsersAvatar.png`} roundedCircle />
           </Link>
         </Col>

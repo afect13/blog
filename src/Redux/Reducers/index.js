@@ -2,6 +2,7 @@ export const init = {
   posts: [],
   user: null,
   comments: [],
+  error: null,
 };
 
 export default function appReducer(state = init, action) {
@@ -11,10 +12,17 @@ export default function appReducer(state = init, action) {
         ...state,
         posts: action.payload,
       };
-    case "USER_LOADED":
+    case "USER_LOADED_SUCCESS":
       return {
         ...state,
         user: action.payload,
+        error: null,
+      };
+    case "USER_LOADED_ERROR":
+      return {
+        ...state,
+        user: null,
+        error: action.payload,
       };
     case "COMMENTS_LOADED":
       return {
